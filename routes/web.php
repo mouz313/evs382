@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//print_r(get_included_files());
+//print_r(get_included_files()); 
 //die;
 Route::get('/', function () {
     return view('welcome');
