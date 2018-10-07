@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'layout' => 'design1',
+    'layout' => 'layouts.design1',
     'headerCss' => [
 //        'bootstrap',
         'custom'
@@ -9,7 +9,7 @@ return [
     'headerJs' =>[
         'bootstrap',
         'custom',
-        'jQuery'
+        'jquery'
     ],
     'headSection' => [
         'head'
@@ -23,7 +23,7 @@ return [
         'left_navigation',
     ],
     'rightSection' => [
-        'registration',
+        'user_registration',
     ],
     'bottomSection' => [
 //        'spot_light',
@@ -35,7 +35,7 @@ return [
     'footerJs' =>[
         'bootstrap',
         'custom',
-        'jQuery'
+        'jquery'
     ],
     
 ];

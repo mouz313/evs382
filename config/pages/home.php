@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'layout' => 'design1',
+    'layout' => 'layouts.design1',
     'headerCss' => [
         'bootstrap',
         'custom'
@@ -9,7 +9,7 @@ return [
     'headerJs' =>[
         'bootstrap',
         'custom',
-        'jQuery'
+        'jquery'
     ],
     'headSection' => [
         'head'
@@ -23,10 +23,10 @@ return [
         'left_navigation',
     ],
     'rightSection' => [
-        'featured_products',
+//        'featured_products',
     ],
     'bottomSection' => [
-//        'spot_light',
+//        'spotlight_slider',
     ],
     'footerSection' =>[
         'footer_nav',
@@ -35,7 +35,7 @@ return [
     'footerJs' =>[
         'bootstrap',
         'custom',
-        'jQuery'
+        'jquery'
     ],
     
 ];
