@@ -8,12 +8,15 @@ use Image;
 
 class UserController extends ViewCompilingController
 {
+//    public $name = 'sad';
     public function getRegistrationPage(Request $request){
 //        dd($request->all());
         return $this->buildPages('registration');
     }
     public function postRegistrationForm(Request $request){
 //        dd($_POST);
+        
+        $apiData = array();
         
         $rules  = [
             'name' => 'required|min:3|max:10',
@@ -64,9 +67,38 @@ class UserController extends ViewCompilingController
         
         
         $image_process->save($user_uploading_path.'/'.$filename);
+//        dd($request->all());
+        $apiData['name'] = $request->get('name');
+        $apiData['user_name'] = $request->get('user_name');
+        $apiData['email'] = $request->get('email');
+        $apiData['password'] = md5($request->get('password'));
+        $apiData['gender'] = $request->get('gender');
+        $apiData['dob'] = $request->get('dob');
+        $apiData['country'] = $request->get('country');
+        $apiData['image'] = $filename;
+
+        
+        // Api Call Pending
+        
+        dd(json_encode($apiData));
+        
+//        $jsonArray = array(
+//            'name' => 'saqib',
+//           'last_name' => 'tariq',
+//            'class' => [
+//                'batch' => 'A'
+//            ]
+//        );
+        
+//        dd(json_encode($jsonArray));
+//        $jsonData = '{"name":"saqib","last_name":"tariq","class":{"batch":"A"}}';
+//               echo '{"name":"saqib","last_name":"tariq","class":{"batch":"A"}}';
+        dd(json_decode($jsonData));
+        dd(json_last_error());
+        dd($request->all());
         dd('here');
 //        $image->move($user_uploading_path , $filename);
         dd('here');
-        dd($request->all());
+        
     }
 }

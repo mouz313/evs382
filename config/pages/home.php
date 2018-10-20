@@ -23,7 +23,7 @@ return [
         'left_navigation',
     ],
     'rightSection' => [
-//        'featured_products',
+        'featured_products',
     ],
     'bottomSection' => [
 //        'spotlight_slider',
