@@ -9,6 +9,8 @@ class ApiController extends Controller {
     public function index(Request $request) {
         $final_data = array();
         
+        $models_config = config('viewmodels');
+        
 //        die(sha1('$f@H^J(K%GSD$TGRSDSD'));
 
         if (empty($request->get('api_data'))) {
@@ -46,7 +48,39 @@ class ApiController extends Controller {
             $final_data['count'] = '';
             return json_encode($final_data);
         }
-        dd($decodeJson);
+        
+        if(empty($models_config[$decodeJson->m])){
+            $final_data['status'] = 404;
+            $final_data['message'] = 'Model name is not correct';
+            $final_data['result'] = [];
+            $final_data['count'] = '';
+            return json_encode($final_data);
+        }
+        
+        
+        $modelObj = $models_config[$decodeJson->m];
+//        strlen()
+        
+        /* 
+         * Regax Pendgin
+         */
+        call_user_func(array($modelObj, $decodeJson->f), $decodeJson->params);
+        
+//        if(empty()){
+//            $final_data['status'] = 404;
+//            $final_data['message'] = 'Methd name is not correct';
+//            $final_data['result'] = [];
+//            $final_data['count'] = '';
+//            return json_encode($final_data);
+//        }
+//        
+        
+//        call_user_func_array(array($modelObj, $decodeJson->f.'asd'), []);
+//        dd();
+//        
+//        call_user_func_array(array($modelObj, $decodeJson->f), []);
+//        \App\Http\Models\User::class;
+
 
         dd(json_decode($request->get('api_data')));
     }
