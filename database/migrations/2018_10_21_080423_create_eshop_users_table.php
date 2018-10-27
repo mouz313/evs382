@@ -18,7 +18,7 @@ class CreateEshopUsersTable extends Migration
             $table->string('name', 30);
             $table->string('user_name', 30)->unique();
             $table->string('email', 30)->unique();
-            $table->string('password', 40);
+            $table->string('password', 255);
             $table->string('gender', 8);
             $table->string('dob', 20);
             $table->string('country', 30);

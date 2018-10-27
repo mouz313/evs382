@@ -48,7 +48,11 @@ class ApiController extends Controller {
             $final_data['count'] = '';
             return json_encode($final_data);
         }
-        
+        $modelPattern = "/^[a-z]+$/";
+        $functionPattern = "/^[a-zA-Z]+$/";
+//        dd($decodeJson->m);
+//        dd(preg_match($modelPattern, $decodeJson->m));
+//        dd($ma);
         if(empty($models_config[$decodeJson->m])){
             $final_data['status'] = 404;
             $final_data['message'] = 'Model name is not correct';
@@ -60,12 +64,22 @@ class ApiController extends Controller {
         
         $modelObj = $models_config[$decodeJson->m];
 //        strlen()
+        //function_exists() 
+        // method_exists
         
-        /* 
-         * Regax Pendgin
-         */
+        if(!method_exists($modelObj, $decodeJson->f )){
+            $final_data['status'] = 404;
+            $final_data['message'] = 'Your Function is not correct';
+            $final_data['result'] = [];
+            $final_data['count'] = '';
+            return json_encode($final_data);
+        }
+        
+//        dd($decodeJson);
+        
+        
         call_user_func(array($modelObj, $decodeJson->f), $decodeJson->params);
-        
+//        dd($decodeJson);
 //        if(empty()){
 //            $final_data['status'] = 404;
 //            $final_data['message'] = 'Methd name is not correct';
