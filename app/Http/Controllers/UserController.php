@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Image;
+use App\Http\Helpers\ApiCall;
+use App\Http\Models\User;
 
 class UserController extends ViewCompilingController
 {
@@ -78,27 +80,26 @@ class UserController extends ViewCompilingController
         $apiData['image'] = $filename;
 
         
-        // Api Call Pending
+        // Api Call 
         
-        dd(json_encode($apiData));
+        $apiCall = new ApiCall();
         
-//        $jsonArray = array(
-//            'name' => 'saqib',
-//           'last_name' => 'tariq',
-//            'class' => [
-//                'batch' => 'A'
-//            ]
-//        );
+        $data = array();
         
-//        dd(json_encode($jsonArray));
-//        $jsonData = '{"name":"saqib","last_name":"tariq","class":{"batch":"A"}}';
-//               echo '{"name":"saqib","last_name":"tariq","class":{"batch":"A"}}';
-        dd(json_decode($jsonData));
-        dd(json_last_error());
-        dd($request->all());
-        dd('here');
-//        $image->move($user_uploading_path , $filename);
-        dd('here');
+        $data['params'] = $apiData;
+        $data['m'] = 'user';
+        $data['f'] = 'addToUser';
+        
+        // Assignment
+//        $apiCall->runApiCall('user', 'addToUser' ,  $apiData);
+        $user_result = $apiCall->runApiCall($data);
+        
+//        $result = User::addToUser($apiData);
+//        dd($user_result);
+        $this->viewData['registered_message'] = !empty($user_result->message) ? $user_result->message : '';
+        
+        return $this->buildPages('registration');
+
         
     }
 }

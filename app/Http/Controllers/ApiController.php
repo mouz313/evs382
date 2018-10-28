@@ -23,7 +23,7 @@ class ApiController extends Controller {
 
 
         $decodeJson = json_decode($request->get('api_data'));
-
+//        dd($decodeJson);
         if (json_last_error() !== 0) {
             $final_data['status'] = 404;
             $final_data['message'] = 'your json string is not correct';
@@ -74,29 +74,10 @@ class ApiController extends Controller {
             $final_data['count'] = '';
             return json_encode($final_data);
         }
-        
-//        dd($decodeJson);
-        
-        
-        call_user_func(array($modelObj, $decodeJson->f), $decodeJson->params);
-//        dd($decodeJson);
-//        if(empty()){
-//            $final_data['status'] = 404;
-//            $final_data['message'] = 'Methd name is not correct';
-//            $final_data['result'] = [];
-//            $final_data['count'] = '';
-//            return json_encode($final_data);
-//        }
-//        
-        
-//        call_user_func_array(array($modelObj, $decodeJson->f.'asd'), []);
-//        dd();
-//        
-//        call_user_func_array(array($modelObj, $decodeJson->f), []);
-//        \App\Http\Models\User::class;
 
+        $final_data = call_user_func(array($modelObj, $decodeJson->f), $decodeJson->params);
 
-        dd(json_decode($request->get('api_data')));
+       return json_encode($final_data);
     }
 
 }

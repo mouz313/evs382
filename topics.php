@@ -7,3 +7,6 @@ http://localhost/evs/evs382/ecommerce/public/api/v1?api_data={%22api_key%22:%220
 
 
 https://www.regular-expressions.info/tutorialcnt.html
+
+
+http://php.net/manual/en/function.curl-setopt.php
