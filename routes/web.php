@@ -18,3 +18,7 @@ Route::post('/registration', 'UserController@postRegistrationForm');
 
 
 
+
+Route::get('/ep-admin', 'AdminController@getHomePage');
+Route::get('/ep-admin/add-products', 'ProductsController@getAddProductsPage');
+Route::post('/ep-admin/add-products', 'ProductsController@postAddProductsPage');
