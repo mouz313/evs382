@@ -13,6 +13,16 @@ class UserController extends ViewCompilingController
 //    public $name = 'sad';
     public function getRegistrationPage(Request $request){
 //        dd($request->all());
+        
+        $coutry_list = array(
+            'Pakistan',
+            'India',
+            'Kenya',
+            'China',
+            'Iran',
+        );
+        
+        $this->viewData['country_list'] = $coutry_list;
         return $this->buildPages('registration');
     }
     public function postRegistrationForm(Request $request){

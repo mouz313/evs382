@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
         {{ Form::label('Select Country :', null) }}
-        {{  Form::select('country', ['Pakistan' , 'India']) }}
+        {{  Form::select('country', $country_list) }}
     </div>
     <div class="form-group">
         {{ Form::label('Profile Image:', null) }}

@@ -1,5 +1,5 @@
 <h1>Add Products</h1>
-<h2>{{!empty($registered_message) ? $registered_message : ''}}</h2>
+<h2>{{!empty($message) ? $message : ''}}</h2>
 {!! Form::open(['url' => '/ep-admin/add-products', 'files' => true]) !!}
 <div class="form-group">
     {{ Form::label('Product Name:', null) }}
@@ -11,7 +11,7 @@
 </div>
 <div class="form-group">
     {{ Form::label('Select Brand:', null) }}
-    {{ Form::select('p_brand', ['HP', 'Dell', 'Acer', 'Apple' , 'Sony']) }}
+    {{ Form::select('p_brand', ['HP', 'Dell', 'Acer', 'Apple' , 'Sony' , 'Samsung']) }}
 </div>
 <!--<div class="form-group">
     {{ Form::label('Select Color:', null) }}
