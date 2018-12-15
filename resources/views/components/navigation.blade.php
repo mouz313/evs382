@@ -15,6 +15,13 @@
                 <li class="pull-left"><a href="{{url('/registration')}}">Registration</a></li>
                 <li class="pull-left"><a href="#">Contact</a></li>
             </ul>
+            <div class="search-bar">
+                <div class="form-group">
+                    {{ Form::label('searchbar:', null) }}
+                    {{ Form::text('searchbar', '', ['placeholder' => '' , 'id' => 'searchText' , 'class' => 'searchbar' ]) }}
+                </div>
+                <input type="submit" id="searchBtn" onclick="event.preventDefault();getSearchProducts()" value="search">
+            </div>
         </nav>
     </div>
 </div>

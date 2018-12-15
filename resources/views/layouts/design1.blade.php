@@ -41,8 +41,5 @@
                 @endforeach 
             </div>
         </footer>
-        <script src="{{url('/js/jquery.js')}}" type="text/javascript"></script>
-        <script src="{{url('/js/bootstrap.js')}}" type="text/javascript"></script>
-        <script src="{{url('/js/custom.js')}}" type="text/javascript"></script>
     </body>
 </html>

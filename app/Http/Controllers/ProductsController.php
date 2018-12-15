@@ -98,5 +98,23 @@ class ProductsController extends ViewCompilingController {
 
         return $this->buildPages('add_products');
     }
+    
+    public function getSearchProducts(Request $request){
+        $apiData['productSearch'] = $request->get('searchData');
+//        dd($apiData);
+
+        // Api Call 
+
+        $apiCall = new ApiCall();
+
+        $data = array();
+
+        $data['params'] = $apiData;
+        $data['m'] = 'product';
+        $data['f'] = 'getProducts';
+//        dd($data);
+        $product_result = $apiCall->runApiCall($data);
+        dd($product_result);
+    }
 
 }

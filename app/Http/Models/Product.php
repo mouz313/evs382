@@ -20,5 +20,9 @@ class Product extends Model {
         $final_data['count'] = '';
         return $final_data;
     }
+    
+    public static function getProducts($params){
+        dd($params);
+    }
 
 }

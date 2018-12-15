@@ -15,6 +15,8 @@ Route::get('/', 'HomePageController@getHomePage');
 Route::get('/registration', 'UserController@getRegistrationPage');
 Route::post('/registration', 'UserController@postRegistrationForm');
 
+Route::post('/getSearchProducts', 'ProductsController@getSearchProducts');
+
 
 
 

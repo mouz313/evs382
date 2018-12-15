@@ -7,9 +7,10 @@ return [
         'custom'
     ],
     'headerJs' =>[
+        'jquery',
         'bootstrap',
         'custom',
-        'jquery'
+        'searchbar',
     ],
     'headSection' => [
         'head'
