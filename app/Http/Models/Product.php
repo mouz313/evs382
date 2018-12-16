@@ -22,7 +22,15 @@ class Product extends Model {
     }
     
     public static function getProducts($params){
-        dd($params);
+        $final_data = array();
+        $result   = DB::table('eshop_products')
+                ->where('name', 'like' , "%$params->productSearch%")
+                ->get();
+        
+        $final_data['status'] = 200;
+        $final_data['message'] = 'Product Fetch Succesfully';
+        $final_data['result'] = $result;
+        return $final_data;
     }
 
 }

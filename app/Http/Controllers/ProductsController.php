@@ -112,9 +112,8 @@ class ProductsController extends ViewCompilingController {
         $data['params'] = $apiData;
         $data['m'] = 'product';
         $data['f'] = 'getProducts';
-//        dd($data);
         $product_result = $apiCall->runApiCall($data);
-        dd($product_result);
+        return json_encode($product_result);
     }
 
 }

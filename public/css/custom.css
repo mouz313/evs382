@@ -183,6 +183,7 @@ section .main-section .featured-products li{
     border-right: 1px dotted #cccccc;
     margin-bottom: 30px;
     margin-right: 2%;
+    overflow: hidden;
 }
 section .main-section .featured-products li:nth-child(4n){
     border-right: none;
