@@ -12,8 +12,10 @@
                 <li class="pull-left active"><a href="{{url('/')}}">Home</a></li>
                 <li class="pull-left"><a href="#">What's New</a></li>
                 <li class="pull-left"><a href="#">Specials</a></li>
+                @if(empty(session()->get('userData')))
                 <li class="pull-left"><a href="{{url('/registration')}}">Registration</a></li>
-                <li class="pull-left"><a href="#">Contact</a></li>
+                <li class="pull-left"><a href="{{url('/login')}}">Login</a></li>
+                @endif
             </ul>
             <div class="search-bar">
                 <div class="form-group">

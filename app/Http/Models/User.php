@@ -33,5 +33,22 @@ class User extends Model {
         return $final_data;
 //        dd($params);
     }
+    
+    public static function getToUser($arg){
+//        dd($arg->email);
+        $final_data = array();
+        $all_users = DB::table('eshop_users')
+                ->where([
+                    ["email" ,  '=' , $arg->email],
+                    ["password" ,  '=' , $arg->password]
+                ])
+                ->first();
+        $final_data['status'] = 200;
+        $final_data['message'] = 'User Successfully fetched';
+        $final_data['result'] = $all_users;
+        $final_data['count'] = '';
+        return $final_data;
+//        dd($all_users);
+    }
 
 }
